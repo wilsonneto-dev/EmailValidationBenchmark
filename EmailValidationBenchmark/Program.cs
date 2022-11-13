@@ -24,4 +24,12 @@ public class BenchClass
         for (var i = 0; i < totalTests; i++)
             validator.IsValid("contact@newdomain.com.br");
     }
+
+    [Benchmark]
+    public void NativeEmailClassValidator()
+    {
+        var validator = new NativeEmailClassValidator();
+        for (var i = 0; i < totalTests; i++)
+            validator.IsValid("contact@newdomain.com.br");
+    }
 }

@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Net.Mail;
+using System.Text.RegularExpressions;
 
 namespace EmailValidationBenchmark;
 
@@ -52,4 +53,10 @@ public class SimpleAlgorithmValidator : IEmailValidation
 
         return true;
     }
+}
+
+public class NativeEmailClassValidator : IEmailValidation
+{
+    public bool IsValid(string email) 
+        => MailAddress.TryCreate(email, out MailAddress? emailAddress);
 }
